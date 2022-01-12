@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 :root {
+  /*declarado o nome da variavel, por caso trocar a cor nao trara efeito negativos na aplicacao*/
   --color-primary: #41c07a;
 }
 
