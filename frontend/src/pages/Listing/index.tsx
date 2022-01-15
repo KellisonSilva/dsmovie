@@ -7,7 +7,7 @@ import { BASE_URL } from "utils/requests";
 
 function Listing() {
 
-    const [pageNumber, setPageNumer] = useState(0);
+    const [pageNumber] = useState(0);
     const [page, setPage] = useState<MoviePage>({
         content: [],
         last: true,
@@ -31,15 +31,6 @@ function Listing() {
             });
 
     }, [pageNumber]);
-
-
-    const movie = {
-        id: 1,
-        image: "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/jBJWaqoSCiARWtfV0GlqHrcdidd.jpg",
-        title: "The Witcher",
-        count: 2,
-        score: 4.5
-    };
 
     return (
         <>
