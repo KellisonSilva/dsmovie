@@ -1,19 +1,30 @@
 import axios from "axios";
 import MovieCard from "components/MovieCard";
 import Pagination from "components/Pagination";
+import { MoviePage } from "movie";
+import { useState, useEffect } from "react";
 import { BASE_URL } from "utils/requests";
 
 function Listing() {
 
-    //FORMA ERRADA
-    axios.get(`${BASE_URL}/movies?size=12&page=0`)
-    .then(response => {
-        console.log(response.data);
-    })
+    const [pageNumber, setPageNumer] = useState(0);
 
+    useEffect(() => {
+        axios.get(`${BASE_URL}/movies?size=12&page=1`)
+            .then(response => {
+                const data = response.data as MoviePage;
+                console.log(data);
+                setPageNumer(data.number);
+
+            });
+
+    }, []);
 
     return (
-        <> <Pagination />
+        <>
+            <p>{pageNumber}</p>
+
+            <Pagination />
 
             <div className="container">
                 {/*a imagem estava tomando toda a tela e com a utilizacao da classe row do bootstrap, ela organiza os elementos*/}
