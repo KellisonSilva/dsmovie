@@ -5,9 +5,11 @@ import { MoviePage } from "movie";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "utils/requests";
 
+
 function Listing() {
 
-    const [pageNumber] = useState(0);
+    const [pageNumber, setPageNumber] = useState(0);
+
     const [page, setPage] = useState<MoviePage>({
         content: [],
         last: true,
@@ -22,9 +24,9 @@ function Listing() {
 
 
 
-    //Ordenar os filmes pelo id ou pelo titulo alterando a &sort=id
+    //Ordenar os filmes pelo id ou pelo titulo alterando a &sort=title
     useEffect(() => {
-        axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}&sort=title`)
+        axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}`)
             .then(response => {
                 const data = response.data as MoviePage;
                 setPage(data);
@@ -32,9 +34,14 @@ function Listing() {
 
     }, [pageNumber]);
 
+    const handlePageChange = (newPageNumber : number) => {
+        setPageNumber(newPageNumber);
+    }
+
+
     return (
         <>
-            <Pagination />
+            <Pagination onChange={handlePageChange} page = {page}/>
 
             <div className="container">
                 {/*a imagem estava tomando toda a tela e com a utilizacao da classe row do bootstrap, ela organiza os elementos*/}
