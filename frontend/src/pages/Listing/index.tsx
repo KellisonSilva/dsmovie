@@ -47,9 +47,9 @@ function Listing() {
                 {/*a imagem estava tomando toda a tela e com a utilizacao da classe row do bootstrap, ela organiza os elementos*/}
                 {/*Estilo do bootstrap margin button == mg que irá acrescentar uma margem abaixo do card*/}
                 <div className="row">
-
+            
                     {page.content.map(movie => (
-                        <div key={movie.id} className="col-sm-6 col-lg-4 col-xl-3 mg-3">
+                        <div key={movie.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
                             <MovieCard movie={movie} />
                         </div>
                     )
