@@ -3,7 +3,7 @@
 
 :root {
   /*declarado o nome da variavel, por caso trocar a cor nao trara efeito negativos na aplicacao*/
-  --color-primary: #41c07a;
+  --color-primary: #474b4b;
 }
 
 * {
@@ -12,7 +12,7 @@
 }
 
 html, body {
-    background-color: #e8e8e8e8;
+    background-color: #928d8de8;
 }
 
 a, a:hover {
